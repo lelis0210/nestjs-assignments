@@ -14,4 +14,19 @@ export class AssignmentsController {
         }
         return { isPrime: true };
     }
+
+    // Method to calculate factorial
+    @Get('factorial/:number')
+    factorial(@Param('number') number: number): { factorial: number } {
+        if (number < 0) {
+            return { factorial: 0 }; // Factorial is not defined for negative numbers
+        }
+
+        let result = 1;
+        for (let i = 1; i <= number; i++) {
+            result *= i;
+        }
+
+        return { factorial: result };
+    }
 }
